@@ -1,4 +1,4 @@
-# !!!Replace with your unique project name!!!
+# Theme Completer with CSS
 
 ## Description
 
@@ -15,7 +15,7 @@
 
 ## Developer
 
-!!!Replace with your name!!!
+Camden Ruinard
 
 ## Example
 
