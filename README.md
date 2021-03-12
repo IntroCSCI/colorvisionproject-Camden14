@@ -2,7 +2,7 @@
 
 ## Description
 
-The theme completer that I have developed promts the user for a color that is either Red, Yellow, Green, Blue, or Purple. If the user enters a color other than the ones that are listed, the program asks them to re-enter their choice. After getting the desired color from the user, the program promts the user to type in the file for the color that they chose. If the file that they typed in is not a valid file, the program promts the user to re-enter a valid file name. The program then opens the file for the user and reads out the many other colors that are similar to the color that the user entered. The program then asks if the user wants to do it again for another color or if they would like to exit the program. This is my theme completer program for CSCI 111. 
+The theme completer that I have developed prompts the user for a color that is either Red, Yellow, Green, Blue, or Purple. If the user enters a color other than the ones that are listed, the program asks them to re-enter their choice. After getting the desired color from the user, the program prompts the user to type in the file for the color that they chose. If the file that they typed in is not a valid file, the program prompts the user to re-enter a valid file name. The program then opens the file for the user and reads out the many other colors that are similar to the color that the user entered. The program then asks if the user wants to do it again for another color or if they would like to exit the program. This is my theme completer program for CSCI 111. 
 
 ### v0.2 Updates
 
@@ -96,8 +96,8 @@ Would you like to enter another color and file name to complete another theme?
 
 ### Decisions
 
-!!!Replace with a summary and examples of how multiple decision constructs have been used effectively and appropriately!!!
-Many decisions were in place in the program to make it run smootly and efficiently. The decisions that had to be made ranged from deciding if the color that the user inputed was a valid one, if the file name that the user entered existed, and also deciding based on which file name the user entered, the correct file would be opened. This came with a variety of if, else if, and else statements. Examples of this can be seen throughout the code from start to end:
+
+Many decisions were in place in the program to make it run smoothly and efficiently. The decisions that had to be made ranged from deciding if the color that the user inputed was a valid one, if the file name that the user entered existed, and also deciding based on which file name the user entered, the correct file would be opened. This came with a variety of if, else if, and else statements. Examples of this can be seen throughout the code from start to end:
 
 if(fileName != "Red.css" && fileName != "Yellow.css" && fileName != "Green.css" && fileName != "Blue.css" && fileName != "Purple.css"){
 .
@@ -116,11 +116,36 @@ else {
 
 ### Iteration
 
-!!!Replace with a summary and examples of how iteration has been used effectively and appropriately!!!
+Multiple iterations (or loops) were used in the code to make the program run smoothly. At the start of the program, I used a while loop to have the entire program be able to run over and over again to the users delight as long as they kept entering the value "1" into the continueValue variable. Within this large program-wide loop, I had multiple do-while loops to have the program keep promtping the user to enter a valid color and valid file name until both values were valid for the program to continue running. Also, after the files were open, I had while loops going to keep the file reader going until the end of the file had been reached. All of these iterations were necessary for my code to be able to run correctly and appropriately. Examples of these iterations can be found here:
+
+while (continueValue == 1){
+  do {
+.
+.
+.
+do{} while(colorName != "Red" && colorName != "Yellow" && colorName != "Green" && colorName != "Blue" && colorName != "Purple");
+.
+.
+.
+while (reader.eof() == false){
+}
 
 ### File Input and Output
 
-!!!Replace with a summary and examples of how input and/or output of files have been used effectively and appropriately!!!
+Throughout my program, I open different files and also display out the various colors within each of the files when called upon. To do this, I used reader.open statements to be able to get into the specific file that the user wanted to open and get into to read. After the desired file was open, I used get line commands in conjunction with a while loop to read and display each of the lines within the files to the console for the user to be able to see. This would have not been possible if not for file input and output commands. Examples of this can bee seen as follows:
+
+reader.open(fileName, ios::in);
+.
+.
+.
+while (reader.eof() == false){
+
+  getline(reader, fileColors);
+  cout << fileColors << endl;
+.
+.
+.
+reader.close();
 
 ### Arrays/Vectors
 
