@@ -6,6 +6,7 @@ using namespace std;
 
 int main()
 {
+  int continueValue = 1;
   string colorName;
   string fileName;
   string fileColors;
@@ -13,6 +14,7 @@ int main()
 
  cout << "Welcome to the Theme Completer. Here, you can enter a color and get back other colors that are color-blind compatible to the one entered." << endl;
 
+while (continueValue == 1){
   do {
    cout << "Please enter a color, that is either Red, Yellow, Green, Blue, or Purple: " << endl;
    
@@ -34,12 +36,12 @@ int main()
 
     if(fileName != "Red.css" && fileName != "Yellow.css" && fileName != "Green.css" && fileName != "Blue.css" && fileName != "Purple.css"){
 
-      cout << "The file name you entered is not valid. Please re-enter the file name to have the color you chose and '.css' after the color name." << endl;
+      cout << "The file name you entered is not valid. Please re-enter the file name   to have the color you chose and '.css' after the color name." << endl;
     }
 
   } while (fileName != "Red.css" && fileName != "Yellow.css" && fileName != "Green.css" && fileName != "Blue.css" && fileName != "Purple.css");
 
- cout << "You chose to save the " << colorName << " theme to the file named " << fileName << "." << endl;
+ cout << "You chose to save the " << colorName << " theme to the file named " <<       fileName << "." << endl;
 
   if(fileName == "Red.css"){
   
@@ -122,5 +124,14 @@ int main()
 
   reader.close();
 
+  cout << "Would you like to enter another color and file name to complete another theme?" << endl;
+
+  cout << "To complete another theme, enter '1'." << endl;
+  cout << "To end the program, enter '2'." << endl;
+
+  cin >> continueValue;
+}
+
+  cout << "Thank you for using the Theme Completer. Have a great rest of your day!" << endl;
   return 0;
 }
