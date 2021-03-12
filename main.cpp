@@ -8,6 +8,7 @@ int main()
 {
   string colorName;
   string fileName;
+  string fileColors;
   fstream reader;
 
  cout << "Welcome to the Theme Completer. Here, you can enter a color and get back other colors that are color-blind compatible to the one entered." << endl;
@@ -42,31 +43,77 @@ int main()
 
   if(fileName == "Red.css"){
   
-  reader.open(fileName, ios::in);
+    reader.open(fileName, ios::in);
+    if (reader.is_open()){
+      cout << "The file for " << colorName << " colors is open." << endl;
+  }
+    
+    while (reader.eof() == false){
+
+      getline(reader, fileColors);
+      cout << fileColors << endl;
+
+    }
   }
   
   else if(fileName == "Yellow.css"){
   
-  reader.open(fileName, ios::in);
+    reader.open(fileName, ios::in);
+    if (reader.is_open()){
+      cout << "The file for " << colorName << " colors is open." << endl;
+  }
+
+    while (reader.eof() == false){
+
+      getline(reader, fileColors);
+      cout << fileColors << endl;
+
+    }
   }
 
   else if(fileName == "Green.css"){
   
-  reader.open(fileName, ios::in);
+    reader.open(fileName, ios::in);
+    if (reader.is_open()){
+      cout << "The file for " << colorName << " colors is open." << endl;
+  }
+
+    while (reader.eof() == false){
+
+      getline(reader, fileColors);
+      cout << fileColors << endl;
+
+    }
   }
 
   else if(fileName == "Blue.css"){
   
-  reader.open(fileName, ios::in);
+    reader.open(fileName, ios::in);
+    if (reader.is_open()){
+      cout << "The file for " << colorName << " colors is open." << endl;
+  }
+
+    while (reader.eof() == false){
+
+      getline(reader, fileColors);
+      cout << fileColors << endl;
+
+    }
   }
 
   else if(fileName == "Purple.css"){
   
-  reader.open(fileName, ios::in);
+    reader.open(fileName, ios::in);
+    if (reader.is_open()){
+      cout << "The file for " << colorName << " colors is open." << endl;
   }
 
-  if (reader.is_open()){
-    cout << "The file for " << colorName << " colors is open." << endl;
+    while (reader.eof() == false){
+
+      getline(reader, fileColors);
+      cout << fileColors << endl;
+
+    }
   }
 
   else {
