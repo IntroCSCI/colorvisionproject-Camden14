@@ -128,12 +128,16 @@ while (continueCode == 1){
 
   reader.close();
 
+  if(colorValue.size() > 0){
+    colorValue.pop_back();
+    colorValue.pop_back();
+    colorValue.pop_back();
+  }
 
   if (colorName == "Red"){
     colorValue.push_back(255);
     colorValue.push_back(0);
     colorValue.push_back(0);
-    colorValue.pop_back();
     
   }
 
@@ -141,7 +145,6 @@ while (continueCode == 1){
     colorValue.push_back(255);
     colorValue.push_back(255);
     colorValue.push_back(0);
-    colorValue.pop_back();
     
   }
 
@@ -149,7 +152,6 @@ while (continueCode == 1){
     colorValue.push_back(0);
     colorValue.push_back(255);
     colorValue.push_back(0);
-    colorValue.pop_back();
     
   }
 
@@ -157,7 +159,6 @@ while (continueCode == 1){
     colorValue.push_back(0);
     colorValue.push_back(0);
     colorValue.push_back(255);
-    colorValue.pop_back();
     
   }
 
@@ -165,7 +166,6 @@ while (continueCode == 1){
     colorValue.push_back(153);
     colorValue.push_back(0);
     colorValue.push_back(153);
-    colorValue.pop_back();
     
   }
 
@@ -183,14 +183,26 @@ while (continueCode == 1){
 
   } while (darkenResponse != "Yes" && darkenResponse != "No" && darkenResponse != "yes" && darkenResponse != "no");
   
-  if(darkenResponse == "Yes"){
+  if(darkenResponse == "Yes" || darkenResponse == "yes"){
     colorDarken (colorValue);
+    cout << "As you chose to darken your color, the new value of the darkened color " << colorName << " is: ";
+      
+      for(int index=0; index < colorValue.size(); index++){
+        cout << colorValue[index] << ", ";
+      }
 
+    cout << endl;
   }
 
   else{
+    cout << "As you chose to keep your color the same value, the original value of the color " << colorName << " is: ";
+      for(int index=0; index < colorValue.size(); index++){
+        cout << colorValue[index] << ", ";
+      }
 
+    cout << endl;
   }
+
 
   cout << "Would you like to enter another color and file name to complete another theme?" << endl;
 
