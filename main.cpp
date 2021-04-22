@@ -1,20 +1,24 @@
 //Author: Camden Ruinard
 #include <iostream>
 #include <fstream>
-
+#include <vector>
 using namespace std;
+
+void colorDarken(vector<int> &);
 
 int main()
 {
-  int continueValue = 1;
+  int continueCode = 1;
   string colorName;
   string fileName;
   string fileColors;
   fstream reader;
+  vector <int> colorValue;
+  string darkenResponse;
 
  cout << "Welcome to the Theme Completer. Here, you can enter a color and get back other colors that are color-blind compatible to the one entered." << endl;
 
-while (continueValue == 1){
+while (continueCode == 1){
   do {
    cout << "Please enter a color, that is either Red, Yellow, Green, Blue, or Purple: " << endl;
    
@@ -36,7 +40,7 @@ while (continueValue == 1){
 
     if(fileName != "Red.css" && fileName != "Yellow.css" && fileName != "Green.css" && fileName != "Blue.css" && fileName != "Purple.css"){
 
-      cout << "The file name you entered is not valid. Please re-enter the file name   to have the color you chose and '.css' after the color name." << endl;
+      cout << "The file name you entered is not valid. Please re-enter the file name to have the color you chose and '.css' after the color name." << endl;
     }
 
   } while (fileName != "Red.css" && fileName != "Yellow.css" && fileName != "Green.css" && fileName != "Blue.css" && fileName != "Purple.css");
@@ -124,14 +128,96 @@ while (continueValue == 1){
 
   reader.close();
 
+
+  if (colorName == "Red"){
+    colorValue.push_back(255);
+    colorValue.push_back(0);
+    colorValue.push_back(0);
+    colorValue.pop_back();
+    
+  }
+
+  else if (colorName == "Yellow"){
+    colorValue.push_back(255);
+    colorValue.push_back(255);
+    colorValue.push_back(0);
+    colorValue.pop_back();
+    
+  }
+
+  else if (colorName == "Green"){
+    colorValue.push_back(0);
+    colorValue.push_back(255);
+    colorValue.push_back(0);
+    colorValue.pop_back();
+    
+  }
+
+  else if (colorName == "Blue"){
+    colorValue.push_back(0);
+    colorValue.push_back(0);
+    colorValue.push_back(255);
+    colorValue.pop_back();
+    
+  }
+
+  else if (colorName == "Purple"){
+    colorValue.push_back(153);
+    colorValue.push_back(0);
+    colorValue.push_back(153);
+    colorValue.pop_back();
+    
+  }
+
+  cout << "If the color " << colorName << " is to bright of a color for you to see, we can darken the color for you. Would you like to darken the color " << colorName << "?" << endl;
+
+  do {
+   cout << "Enter Yes or No to proceed." << endl;
+   
+   cin >> darkenResponse;
+
+    if(darkenResponse != "Yes" && darkenResponse != "No" && darkenResponse != "yes" && darkenResponse != "no"){
+
+      cout << "The response you gave was not able to be understood. Please enter either Yes or No to proceed." << endl;
+    }
+
+  } while (darkenResponse != "Yes" && darkenResponse != "No" && darkenResponse != "yes" && darkenResponse != "no");
+  
+  if(darkenResponse == "Yes"){
+    colorDarken (colorValue);
+
+  }
+
+  else{
+
+  }
+
   cout << "Would you like to enter another color and file name to complete another theme?" << endl;
 
   cout << "To complete another theme, enter '1'." << endl;
   cout << "To end the program, enter '2'." << endl;
 
-  cin >> continueValue;
+  cin >> continueCode;
 }
 
   cout << "Thank you for using the Theme Completer. Have a great rest of your day!" << endl;
   return 0;
+}
+
+
+void colorDarken(vector<int> & colorValue){
+
+  for(int index=0; index <= colorValue.size(); index++){
+    if(colorValue[index] == 0){
+
+    }
+
+    else if(colorValue[index] > 0){
+      colorValue[index] = colorValue[index] / 2;
+    }
+
+    else{
+
+    }
+  }
 }
