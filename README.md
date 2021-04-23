@@ -6,7 +6,7 @@ The theme completer that I have developed prompts the user for a color that is e
 
 ### v0.2 Updates
 
-*Coming soon*
+The updates to the theme completer that I have made for this section are simple but useful for the user. First, when the user enters whichever color they want to explore, a vector is created with the three RGB values associated with the base color. Next, the user is prompted a question to find out whether or not the base collor is too bright for the user to normally see. If not, the RGB values of the original base color are displayed for the user. If the user says that the color is too bright, the vector of the base color is run through a function to change the RGB values to make the original color darker for the user, then this new vector is displayed for the user. After this section, the code runs another new function to count how many times the program has run overall, and then this total is displayed for the user. As done before, if the user wants to do it again, they can if they'd like. Upon running the code again, the vector gets erased and the new color that the user looks for gets entered into the vector. The counter also updates with a new total for each time run through. This is my updates to my theme completer for CSCI 111.
 
 ### v1.0 Updates
 
@@ -32,7 +32,7 @@ Here is an example of the program running:
  g++ -std=c++11 *.cpp -o cvp; ./cvp
 Welcome to the Theme Completer. Here, you can enter a color and get back other colors that are color-blind compatible to the one entered.
 Please enter a color, that is either Red, Yellow, Green, Blue, or Purple: 
-Red
+Red            
 The color you entered is: Red
 Please enter a file name to save your theme to (type the color you chose and add '.css' to the end of the color name): 
 Red.css
@@ -44,6 +44,39 @@ The file for Red colors is open.
 #p4 {background-color: rgba(243, 0, 57);}
 #p5 {background-color: rgba(81, 8, 8);}
 #p6 {background-color: rgba(235, 179, 179);}
+If the color Red is to bright of a color for you to see, we can darken the color for you. Would you like to darken the color Red?
+Enter Yes or No to proceed.
+Yes
+As you chose to darken your color, the new value of the darkened color Red is: 
+127
+0
+0
+You have run through this program a total number of times of: 1
+Would you like to enter another color and file name to complete another theme?
+To complete another theme, enter '1'.
+To end the program, enter '2'.
+1
+Please enter a color, that is either Red, Yellow, Green, Blue, or Purple: 
+Blue
+The color you entered is: Blue
+Please enter a file name to save your theme to (type the color you chose and add '.css' to the end of the color name): 
+Blue.css
+You chose to save the Blue theme to the file named Blue.css.
+The file for Blue colors is open.
+#p1 {background-color: rgba(0, 0, 255);}
+#p2 {background-color: rgba(13, 13, 144);}
+#p3 {background-color: rgba(94, 94, 192);}
+#p4 {background-color: rgba(6, 96, 186);}
+#p5 {background-color: rgba(148, 200, 253);}
+#p6 {background-color: rgba(54, 80, 105);}
+If the color Blue is to bright of a color for you to see, we can darken the color for you. Would you like to darken the color Blue?
+Enter Yes or No to proceed.
+Yes
+As you chose to darken your color, the new value of the darkened color Blue is: 
+0
+0
+127
+You have run through this program a total number of times of: 2
 Would you like to enter another color and file name to complete another theme?
 To complete another theme, enter '1'.
 To end the program, enter '2'.
@@ -149,7 +182,35 @@ reader.close();
 
 ### Arrays/Vectors
 
-*Coming in version 0.2*
+Within my program, I implemented a vector that holds the RGB values of the desired color of the user. This vector holds three integers, and these integers are inputed into the vector when the user decides which color they want to complete the theme with. This vector also is able to be modified in the code by a function if the user chooses to do so. Finally, if the user wants to run the code again for a different color, the vector gets emptied out and new values for the RGB of the new color gets put in. Examples of this can be seen as follows:
+
+vector <int> colorValue;
+.
+.
+.
+
+if(colorValue.size() > 0){
+    colorValue.pop_back();
+    colorValue.pop_back();
+    colorValue.pop_back();
+  }
+
+  if (colorName == "Red"){
+    colorValue.push_back(255);
+    colorValue.push_back(0);
+    colorValue.push_back(0);
+    
+  }
+  .
+  .
+  .
+
+  else if (colorName == "Purple"){
+    colorValue.push_back(153);
+    colorValue.push_back(0);
+    colorValue.push_back(153);
+    
+  }
 
 ### Functions
 

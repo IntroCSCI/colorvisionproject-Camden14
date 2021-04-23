@@ -5,6 +5,7 @@
 using namespace std;
 
 void colorDarken(vector<int> &);
+int timesRun (int);
 
 int main()
 {
@@ -15,6 +16,7 @@ int main()
   fstream reader;
   vector <int> colorValue;
   string darkenResponse;
+  int totalCodeCompletions = 0;
 
  cout << "Welcome to the Theme Completer. Here, you can enter a color and get back other colors that are color-blind compatible to the one entered." << endl;
 
@@ -185,24 +187,25 @@ while (continueCode == 1){
   
   if(darkenResponse == "Yes" || darkenResponse == "yes"){
     colorDarken (colorValue);
-    cout << "As you chose to darken your color, the new value of the darkened color " << colorName << " is: ";
+    cout << "As you chose to darken your color, the new value of the darkened color " << colorName << " is: " << endl;
       
       for(int index=0; index < colorValue.size(); index++){
-        cout << colorValue[index] << ", ";
+        cout << colorValue[index] << endl;
       }
 
-    cout << endl;
   }
 
   else{
-    cout << "As you chose to keep your color the same value, the original value of the color " << colorName << " is: ";
+    cout << "As you chose to keep your color the same value, the original value of the color " << colorName << " is: " << endl;
       for(int index=0; index < colorValue.size(); index++){
-        cout << colorValue[index] << ", ";
+        cout << colorValue[index] << endl;
       }
 
-    cout << endl;
   }
 
+  totalCodeCompletions = timesRun(totalCodeCompletions);
+
+  cout << "You have run through this program a total number of times of: " << totalCodeCompletions << endl;
 
   cout << "Would you like to enter another color and file name to complete another theme?" << endl;
 
@@ -232,4 +235,10 @@ void colorDarken(vector<int> & colorValue){
 
     }
   }
+}
+
+int timesRun(int number){
+  
+  number = number + 1;
+  return number;
 }
