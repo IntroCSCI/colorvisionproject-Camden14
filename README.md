@@ -214,7 +214,60 @@ if(colorValue.size() > 0){
 
 ### Functions
 
-*Coming in version 0.2*
+In my theme completer, I have two important functions that each carry out different and unique tasks that are integral to the program itself. The first function that is used is a pass by reference function that has a void return value. This functions name is colorDarken and the purpose of this function is to take the vector that is created after the user decides which color they would like to use and if the user decides that this specific color is to bright for then to be able to tell what color it is, this function will take the vector and reduce the values to make the color darker for the user. This function modifies each element in the vector and changes it permenently in the code when it is done so that the new vector can be displayed correctly when it is all said and done. An example of this function can be seen as follows:
+
+void colorDarken(vector<int> &);
+
+int main()
+.
+.
+.
+
+colorDarken (colorValue);
+.
+.
+.
+return 0;
+
+void colorDarken(vector<int> & colorValue){
+
+  for(int index=0; index <= colorValue.size(); index++){
+  if(colorValue[index] == 0){
+
+  }
+
+  else if(colorValue[index] > 0){
+  colorValue[index] = colorValue[index] / 2;
+  }
+
+  else{
+
+  }
+  }
+}
+
+The final of the two functions in the program is a pass by value function that has an integer return value. The name of this function is timesRun and the purpose of this function is to increment the integer for the total times the code has run through from start to finish. When the main section of the code that has been run through once, the integer within the code is set equal to this function and for every time the code is re-run by the user, this function makes the integer for the total times run increase by one. After the function is called and executed, there is a message to the user saying how many times the program has been run so that the user knows this total. An example of this can be seen as follows:
+
+int timesRun (int);
+
+int main()
+.
+.
+.
+
+totalCodeCompletions = timesRun(totalCodeCompletions);
+
+cout << "You have run through this program a total number of times of: " << totalCodeCompletions << endl;
+.
+.
+.
+return 0;
+
+int timesRun(int number){
+  
+  number = number + 1;
+  return number;
+}
 
 ### Classes
 
