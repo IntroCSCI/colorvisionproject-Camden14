@@ -27,8 +27,7 @@ class profile{
     void setColor (string);
 
     void display();
-
-
+    
 };
 
 #endif

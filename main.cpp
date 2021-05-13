@@ -18,8 +18,8 @@ int main()
   vector <int> colorValue;
   string darkenResponse;
   int totalCodeCompletions = 0;
-  profile user;
   string userName;
+  profile user;
 
  cout << "Welcome to the Theme Completer. Here, you can enter a color and get back other colors that are color-blind compatible to the one entered." << endl;
 
@@ -248,4 +248,3 @@ int timesRun(int number){
   return number;
 }
   
- 
