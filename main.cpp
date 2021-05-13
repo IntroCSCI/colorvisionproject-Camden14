@@ -2,6 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include "profile.h"
 using namespace std;
 
 void colorDarken(vector<int> &);
@@ -17,10 +18,18 @@ int main()
   vector <int> colorValue;
   string darkenResponse;
   int totalCodeCompletions = 0;
+  profile user;
+  string userName;
 
  cout << "Welcome to the Theme Completer. Here, you can enter a color and get back other colors that are color-blind compatible to the one entered." << endl;
 
 while (continueCode == 1){
+  
+  cout << "Please enter your name to start the formation or your new profile: " << endl;
+  cin >> userName;
+
+  user.setName(userName);
+
   do {
    cout << "Please enter a color, that is either Red, Yellow, Green, Blue, or Purple: " << endl;
    
@@ -33,7 +42,8 @@ while (continueCode == 1){
 
   } while (colorName != "Red" && colorName != "Yellow" && colorName != "Green" && colorName != "Blue" && colorName != "Purple");
 
- cout << "The color you entered is: " << colorName << endl;
+  cout << "The color you entered is: " << colorName << endl;
+  user.setColor(colorName);
 
   do {
    cout << "Please enter a file name to save your theme to (type the color you chose and add '.css' to the end of the color name): " << endl;
@@ -47,7 +57,7 @@ while (continueCode == 1){
 
   } while (fileName != "Red.css" && fileName != "Yellow.css" && fileName != "Green.css" && fileName != "Blue.css" && fileName != "Purple.css");
 
- cout << "You chose to save the " << colorName << " theme to the file named " <<       fileName << "." << endl;
+  cout << "You chose to save the " << colorName << " theme to the file named " <<       fileName << "." << endl;
 
   if(fileName == "Red.css"){
   
@@ -171,6 +181,8 @@ while (continueCode == 1){
     
   }
 
+  user.setValue(colorValue);
+
   cout << "If the color " << colorName << " is to bright of a color for you to see, we can darken the color for you. Would you like to darken the color " << colorName << "?" << endl;
 
   do {
@@ -187,23 +199,17 @@ while (continueCode == 1){
   
   if(darkenResponse == "Yes" || darkenResponse == "yes"){
     colorDarken (colorValue);
-    cout << "As you chose to darken your color, the new value of the darkened color " << colorName << " is: " << endl;
-      
-      for(int index=0; index < colorValue.size(); index++){
-        cout << colorValue[index] << endl;
-      }
+    user.setValue(colorValue);
+    cout << "You chose to darken your color." << endl;
 
   }
 
   else{
-    cout << "As you chose to keep your color the same value, the original value of the color " << colorName << " is: " << endl;
-      for(int index=0; index < colorValue.size(); index++){
-        cout << colorValue[index] << endl;
-      }
-
+    cout << "You chose to keep your color the same value." << endl;
   }
-
   totalCodeCompletions = timesRun(totalCodeCompletions);
+
+  user.display();
 
   cout << "You have run through this program a total number of times of: " << totalCodeCompletions << endl;
 
@@ -238,7 +244,8 @@ void colorDarken(vector<int> & colorValue){
 }
 
 int timesRun(int number){
-  
-  number = number + 1;
+   number = number + 1;
   return number;
 }
+  
+ 
