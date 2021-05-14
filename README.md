@@ -10,7 +10,7 @@ The updates to the theme completer that I have made for this section are simple 
 
 ### v1.0 Updates
 
-*Coming soon*
+The final updates to the theme completer that I have made is the creation of a new class. This class add functionality and simplicity for the user. It helps them create a profile where all their information about the color they are exploring and completing. Not only is this new class simple and easy for the user within this program specifically, it is also a class that would be very easy to reuse from program to program if necessary with minor changes if any. This rounds out my theme completer project and program for the semester for CSCI 111.
 
 
 ## Developer
@@ -31,8 +31,10 @@ Here is an example of the program running:
 ```
  g++ -std=c++11 *.cpp -o cvp; ./cvp
 Welcome to the Theme Completer. Here, you can enter a color and get back other colors that are color-blind compatible to the one entered.
+Please enter your name to start the formation or your new profile: 
+Jeff
 Please enter a color, that is either Red, Yellow, Green, Blue, or Purple: 
-Red            
+Red
 The color you entered is: Red
 Please enter a file name to save your theme to (type the color you chose and add '.css' to the end of the color name): 
 Red.css
@@ -46,9 +48,13 @@ The file for Red colors is open.
 #p6 {background-color: rgba(235, 179, 179);}
 If the color Red is to bright of a color for you to see, we can darken the color for you. Would you like to darken the color Red?
 Enter Yes or No to proceed.
-Yes
-As you chose to darken your color, the new value of the darkened color Red is: 
-127
+No
+You chose to keep your color the same value.
+Your profile for the Theme Completer is: 
+Name: Jeff
+Completed Color: Red
+Desired Color Value: 
+255
 0
 0
 You have run through this program a total number of times of: 1
@@ -56,26 +62,32 @@ Would you like to enter another color and file name to complete another theme?
 To complete another theme, enter '1'.
 To end the program, enter '2'.
 1
+Please enter your name to start the formation or your new profile: 
+John
 Please enter a color, that is either Red, Yellow, Green, Blue, or Purple: 
-Blue
-The color you entered is: Blue
+Yellow
+The color you entered is: Yellow
 Please enter a file name to save your theme to (type the color you chose and add '.css' to the end of the color name): 
-Blue.css
-You chose to save the Blue theme to the file named Blue.css.
-The file for Blue colors is open.
-#p1 {background-color: rgba(0, 0, 255);}
-#p2 {background-color: rgba(13, 13, 144);}
-#p3 {background-color: rgba(94, 94, 192);}
-#p4 {background-color: rgba(6, 96, 186);}
-#p5 {background-color: rgba(148, 200, 253);}
-#p6 {background-color: rgba(54, 80, 105);}
-If the color Blue is to bright of a color for you to see, we can darken the color for you. Would you like to darken the color Blue?
+Yellow.css
+You chose to save the Yellow theme to the file named Yellow.css.
+The file for Yellow colors is open.
+#p1 {background-color: rgba(255, 255, 0);}
+#p2 {background-color: rgba(127, 127, 14);}
+#p3 {background-color: rgba(199, 199, 121);}
+#p4 {background-color: rgba(198, 225, 25);}
+#p5 {background-color: rgba(250, 255, 209);}
+#p6 {background-color: rgba(70, 74, 45);}
+If the color Yellow is to bright of a color for you to see, we can darken the color for you. Would you like to darken the color Yellow?
 Enter Yes or No to proceed.
 Yes
-As you chose to darken your color, the new value of the darkened color Blue is: 
-0
-0
+You chose to darken your color.
+Your profile for the Theme Completer is: 
+Name: John
+Completed Color: Yellow
+Desired Color Value: 
 127
+127
+0
 You have run through this program a total number of times of: 2
 Would you like to enter another color and file name to complete another theme?
 To complete another theme, enter '1'.
@@ -122,9 +134,13 @@ I had also used many console out commands in the program as well. I used them in
 
 You chose to save the Red theme to the file named Red.css.
 The file for Red colors is open.
+
 .
+
 .
+
 .
+
 Would you like to enter another color and file name to complete another theme?
 
 ### Decisions
@@ -133,17 +149,29 @@ Would you like to enter another color and file name to complete another theme?
 Many decisions were in place in the program to make it run smoothly and efficiently. The decisions that had to be made ranged from deciding if the color that the user inputed was a valid one, if the file name that the user entered existed, and also deciding based on which file name the user entered, the correct file would be opened. This came with a variety of if, else if, and else statements. Examples of this can be seen throughout the code from start to end:
 
 if(fileName != "Red.css" && fileName != "Yellow.css" && fileName != "Green.css" && fileName != "Blue.css" && fileName != "Purple.css"){
+
 .
+
 .
+
 .
+
 if(fileName == "Red.css"){
+
 .
+
 .
+
 .
+
 else if(fileName == "Yellow.css"){
+
 .
+
 .
+
 .
+
 else {
     cout << "No file has been opened." << endl;
 
@@ -153,13 +181,21 @@ Multiple iterations (or loops) were used in the code to make the program run smo
 
 while (continueValue == 1){
   do {
+
 .
+
 .
+
 .
+
 do{} while(colorName != "Red" && colorName != "Yellow" && colorName != "Green" && colorName != "Blue" && colorName != "Purple");
+
 .
+
 .
+
 .
+
 while (reader.eof() == false){
 }
 
@@ -168,16 +204,24 @@ while (reader.eof() == false){
 Throughout my program, I open different files and also display out the various colors within each of the files when called upon. To do this, I used reader.open statements to be able to get into the specific file that the user wanted to open and get into to read. After the desired file was open, I used get line commands in conjunction with a while loop to read and display each of the lines within the files to the console for the user to be able to see. This would have not been possible if not for file input and output commands. Examples of this can bee seen as follows:
 
 reader.open(fileName, ios::in);
+
 .
+
 .
+
 .
+
 while (reader.eof() == false){
 
   getline(reader, fileColors);
   cout << fileColors << endl;
+
 .
+
 .
+
 .
+
 reader.close();
 
 ### Arrays/Vectors
@@ -185,8 +229,11 @@ reader.close();
 Within my program, I implemented a vector that holds the RGB values of the desired color of the user. This vector holds three integers, and these integers are inputed into the vector when the user decides which color they want to complete the theme with. This vector also is able to be modified in the code by a function if the user chooses to do so. Finally, if the user wants to run the code again for a different color, the vector gets emptied out and new values for the RGB of the new color gets put in. Examples of this can be seen as follows:
 
 vector <int> colorValue;
+
 .
+
 .
+
 .
 
 if(colorValue.size() > 0){
@@ -201,8 +248,11 @@ if(colorValue.size() > 0){
     colorValue.push_back(0);
     
   }
+
   .
+
   .
+
   .
 
   else if (colorName == "Purple"){
@@ -219,14 +269,21 @@ In my theme completer, I have two important functions that each carry out differ
 void colorDarken(vector<int> &);
 
 int main()
+
 .
+
 .
+
 .
 
 colorDarken (colorValue);
+
 .
+
 .
+
 .
+
 return 0;
 
 void colorDarken(vector<int> & colorValue){
@@ -251,16 +308,23 @@ The final of the two functions in the program is a pass by value function that h
 int timesRun (int);
 
 int main()
+
 .
+
 .
+
 .
 
 totalCodeCompletions = timesRun(totalCodeCompletions);
 
 cout << "You have run through this program a total number of times of: " << totalCodeCompletions << endl;
+
 .
+
 .
+
 .
+
 return 0;
 
 int timesRun(int number){
@@ -271,4 +335,77 @@ int timesRun(int number){
 
 ### Classes
 
-*Coming in version 1.0*
+To round out this program, it was missing an important piece of functionality for the user that would make their lives much easier. The creation of a class was necessary, and in doing so, I created a class to let the user make each theme that was completed their own personal profile. Each user was allowed to call their profile by either their own name or enter a username of their chosing. Next, they were able to chose whichever color they wanted to complete their theme in, and that color became a descriptor in their profile that they were creating. Another aspect of their profile that made each and every completed theme unique was the value of the color that they changed. If they decided to keep their specified color the same, that value was added to their profile to indicate which specific shade of the color they desired. Also, if the user decided to darken the color, the new values for the darker color got added to their profile to indicate the unique shade of color that the user desired. With these three indicators, this allowed each user to make their profile their own within the theme completer, and therefore making this class not only necessary but functionanble and resuable as well. An example of the definition of this class can be seen as follows:
+
+class profile{
+  
+  private:
+
+    string usersName;
+    string issueColor;
+    vector <int> colorValue;
+
+  public:
+
+    profile();
+
+    void setName (string);
+
+    void setValue (vector <int>);
+
+    void setColor (string);
+
+    void display();
+    
+};
+
+And the following is the file where all the functions for the class are carried out and what thy look like:
+
+profile::profile(){
+  
+    usersName = "name not provided";
+    colorValue = {};
+    issueColor = "";
+}
+
+void profile::setName(string firstName){
+    
+    usersName = firstName;
+}
+
+void profile::setValue(vector <int> values){
+
+    colorValue = values;
+}
+
+void profile::setColor(string randomColor){
+
+    issueColor = randomColor;
+}
+
+void profile::display(){
+    
+    cout << "Your profile for the Theme Completer is: " << endl;
+    cout << "Name: " << usersName << endl;
+    cout << "Completed Color: " << issueColor << endl;
+    cout << "Desired Color Value: " << endl;
+
+    for(int index=0; index < colorValue.size(); index++){
+        cout << colorValue[index] << endl;
+      }
+
+}
+
+Finally, the execution of the profile class in the running program can be seen as follows:
+
+Your profile for the Theme Completer is: 
+
+Name: Jeff
+
+Completed Color: Red
+
+Desired Color Value: 
+
+255
+0
+0
