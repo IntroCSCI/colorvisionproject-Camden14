@@ -25,7 +25,7 @@ int main()
 
 while (continueCode == 1){
   
-  cout << "Please enter your name to start the formation or your new profile: " << endl;
+  cout << "Please enter your name to start the formation of your new profile: " << endl;
   cin >> userName;
 
   user.setName(userName);
@@ -207,6 +207,7 @@ while (continueCode == 1){
   else{
     cout << "You chose to keep your color the same value." << endl;
   }
+  
   totalCodeCompletions = timesRun(totalCodeCompletions);
 
   user.display();
